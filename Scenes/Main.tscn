@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c11v6wcvvmgyh"]
+[gd_scene load_steps=5 format=3 uid="uid://c11v6wcvvmgyh"]
 
 [ext_resource type="PackedScene" uid="uid://jc6wnfboqk3p" path="res://Prefabs/GameDice.tscn" id="1_xbbo3"]
 [ext_resource type="PackedScene" uid="uid://ce4ors6jsrfxi" path="res://Prefabs/Board.tscn" id="2_dyhf3"]
+[ext_resource type="PackedScene" uid="uid://bep0krbmgdrdj" path="res://Prefabs/GameTile.tscn" id="3_hhjvh"]
+[ext_resource type="PackedScene" uid="uid://cqbwyau56sd6" path="res://Prefabs/GamePlayer.tscn" id="4_tjitt"]
 
 [node name="Game" type="Node3D"]
 
@@ -10,6 +12,7 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.64924, 4
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.573934, 0.818902, 0, -0.818902, 0.573934, 0, 6.55572, 0)
+shadow_enabled = true
 
 [node name="GameDice" parent="." instance=ExtResource("1_xbbo3")]
 transform = Transform3D(1, 0, 0, 0, 0.912848, -0.408299, 0, 0.408299, 0.912848, 0, 1.89027, 0)
@@ -18,3 +21,51 @@ transform = Transform3D(1, 0, 0, 0, 0.912848, -0.408299, 0, 0.408299, 0.912848, 
 transform = Transform3D(1, 0, 0, 0, 0.912848, -0.408299, 0, 0.408299, 0.912848, 4.06565, 1.89027, -0.0773425)
 
 [node name="Board" parent="." instance=ExtResource("2_dyhf3")]
+
+[node name="Tiles" type="Node3D" parent="."]
+
+[node name="GameTile" parent="Tiles" instance=ExtResource("3_hhjvh")]
+
+[node name="GameTile2" parent="Tiles" instance=ExtResource("3_hhjvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.360229, 25)
+
+[node name="GameTile3" parent="Tiles" instance=ExtResource("3_hhjvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -0.360229, 25)
+
+[node name="GameTile4" parent="Tiles" instance=ExtResource("3_hhjvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -0.360229, 12)
+
+[node name="GameTile5" parent="Tiles" instance=ExtResource("3_hhjvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -0.360229, 0)
+
+[node name="GameTile6" parent="Tiles" instance=ExtResource("3_hhjvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -0.360229, -13)
+
+[node name="GameTile7" parent="Tiles" instance=ExtResource("3_hhjvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, -0.360229, -25)
+
+[node name="GameTile8" parent="Tiles" instance=ExtResource("3_hhjvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -0.360229, -25)
+
+[node name="GameTile9" parent="Tiles" instance=ExtResource("3_hhjvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.360229, -25)
+
+[node name="GameTile10" parent="Tiles" instance=ExtResource("3_hhjvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, -0.360229, -25)
+
+[node name="GameTile11" parent="Tiles" instance=ExtResource("3_hhjvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, -0.360229, -13)
+
+[node name="GameTile12" parent="Tiles" instance=ExtResource("3_hhjvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, -0.360229, 0)
+
+[node name="GameTile13" parent="Tiles" instance=ExtResource("3_hhjvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, -0.360229, 13)
+
+[node name="GameTile14" parent="Tiles" instance=ExtResource("3_hhjvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.360229, 24)
+
+[node name="Players" type="Node3D" parent="."]
+
+[node name="GamePlayer" parent="Players" instance=ExtResource("4_tjitt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5249, 0.26353, -24.7494)

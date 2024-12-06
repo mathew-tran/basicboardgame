@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://jc6wnfboqk3p"]
 
-[ext_resource type="PackedScene" uid="uid://c0dqrvmknexyo" path="res://Art/Dice.blend" id="1_vlun8"]
+[ext_resource type="PackedScene" uid="uid://c0dqrvmknexyo" path="res://Art/Dice/Dice.blend" id="1_vlun8"]
 [ext_resource type="Script" path="res://Scripts/Game/GameDice.gd" id="1_ws7re"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pt3wr"]

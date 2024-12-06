@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqbwyau56sd6"]
+
+[ext_resource type="PackedScene" uid="uid://cn3im86ls28h6" path="res://Art/Player/Player.blend" id="1_icte8"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nop0f"]
+height = 2.80374
+radius = 1.37993
+
+[node name="GamePlayer" type="RigidBody3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_icte8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445805, 0)
+shape = SubResource("CylinderShape3D_nop0f")
