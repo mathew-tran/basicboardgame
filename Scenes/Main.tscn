@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c11v6wcvvmgyh"]
+[gd_scene load_steps=7 format=3 uid="uid://c11v6wcvvmgyh"]
 
 [ext_resource type="PackedScene" uid="uid://jc6wnfboqk3p" path="res://Prefabs/GameDice.tscn" id="1_xbbo3"]
 [ext_resource type="PackedScene" uid="uid://ce4ors6jsrfxi" path="res://Prefabs/Board.tscn" id="2_dyhf3"]
 [ext_resource type="PackedScene" uid="uid://bep0krbmgdrdj" path="res://Prefabs/GameTile.tscn" id="3_hhjvh"]
+[ext_resource type="Script" path="res://Scripts/Game/DiceGroup.gd" id="3_sk3en"]
 [ext_resource type="PackedScene" uid="uid://cqbwyau56sd6" path="res://Prefabs/GamePlayer.tscn" id="4_tjitt"]
+[ext_resource type="Script" path="res://Scripts/UI/RollButton.gd" id="6_kdfgx"]
 
 [node name="Game" type="Node3D"]
 
@@ -13,12 +15,6 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.64924, 4
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.573934, 0.818902, 0, -0.818902, 0.573934, 0, 6.55572, 0)
 shadow_enabled = true
-
-[node name="GameDice" parent="." instance=ExtResource("1_xbbo3")]
-transform = Transform3D(1, 0, 0, 0, 0.912848, -0.408299, 0, 0.408299, 0.912848, 0, 1.89027, 0)
-
-[node name="GameDice2" parent="." instance=ExtResource("1_xbbo3")]
-transform = Transform3D(1, 0, 0, 0, 0.912848, -0.408299, 0, 0.408299, 0.912848, 4.06565, 1.89027, -0.0773425)
 
 [node name="Board" parent="." instance=ExtResource("2_dyhf3")]
 
@@ -65,7 +61,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, -0.360229, 13)
 [node name="GameTile14" parent="Tiles" instance=ExtResource("3_hhjvh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -0.360229, 24)
 
+[node name="Dice" type="Node3D" parent="."]
+script = ExtResource("3_sk3en")
+
+[node name="GameDice" parent="Dice" instance=ExtResource("1_xbbo3")]
+transform = Transform3D(1, 0, 0, 0, 0.912848, -0.408299, 0, 0.408299, 0.912848, 0, 1.89027, 0)
+
+[node name="GameDice2" parent="Dice" instance=ExtResource("1_xbbo3")]
+transform = Transform3D(1, 0, 0, 0, 0.912848, -0.408299, 0, 0.408299, 0.912848, 4.06565, 1.89027, -0.0773425)
+
 [node name="Players" type="Node3D" parent="."]
 
 [node name="GamePlayer" parent="Players" instance=ExtResource("4_tjitt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5249, 0.26353, -24.7494)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Roll" type="Button" parent="CanvasLayer"]
+custom_minimum_size = Vector2(300, 80)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -93.0
+offset_right = 150.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 60
+text = "Roll Dice
+"
+script = ExtResource("6_kdfgx")
+
+[connection signal="button_up" from="CanvasLayer/Roll" to="CanvasLayer/Roll" method="_on_button_up"]
