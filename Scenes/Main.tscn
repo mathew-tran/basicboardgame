@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c11v6wcvvmgyh"]
+
+[ext_resource type="PackedScene" uid="uid://jc6wnfboqk3p" path="res://Prefabs/GameDice.tscn" id="1_xbbo3"]
+[ext_resource type="PackedScene" uid="uid://ce4ors6jsrfxi" path="res://Prefabs/Board.tscn" id="2_dyhf3"]
+
+[node name="Game" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.64924, 4.80073, 9.8953)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.573934, 0.818902, 0, -0.818902, 0.573934, 0, 6.55572, 0)
+
+[node name="GameDice" parent="." instance=ExtResource("1_xbbo3")]
+transform = Transform3D(1, 0, 0, 0, 0.912848, -0.408299, 0, 0.408299, 0.912848, 0, 1.89027, 0)
+
+[node name="GameDice2" parent="." instance=ExtResource("1_xbbo3")]
+transform = Transform3D(1, 0, 0, 0, 0.912848, -0.408299, 0, 0.408299, 0.912848, 4.06565, 1.89027, -0.0773425)
+
+[node name="Board" parent="." instance=ExtResource("2_dyhf3")]

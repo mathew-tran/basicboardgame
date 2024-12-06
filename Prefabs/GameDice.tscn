@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://jc6wnfboqk3p"]
+
+[ext_resource type="PackedScene" uid="uid://c0dqrvmknexyo" path="res://Art/Dice.blend" id="1_vlun8"]
+[ext_resource type="Script" path="res://Scripts/Game/GameDice.gd" id="1_ws7re"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pt3wr"]
+custom_solver_bias = 1.0
+size = Vector3(2, 2, 2)
+
+[node name="GameDice" type="RigidBody3D"]
+script = ExtResource("1_ws7re")
+
+[node name="Dice" parent="." instance=ExtResource("1_vlun8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_pt3wr")
+
+[node name="Casts" type="Node3D" parent="."]
+
+[node name="1" type="RayCast3D" parent="Casts"]
+target_position = Vector3(-2, 0, 0)
+debug_shape_custom_color = Color(1, 0, 0, 1)
+debug_shape_thickness = 5
+
+[node name="2" type="RayCast3D" parent="Casts"]
+target_position = Vector3(0, -2, 0)
+debug_shape_custom_color = Color(0.924207, 3.17663e-06, 0.524071, 1)
+debug_shape_thickness = 5
+
+[node name="3" type="RayCast3D" parent="Casts"]
+transform = Transform3D(0.999998, -0.00131811, -0.00113018, 0.00131856, 0.999999, 0.000392317, 0.00112966, -0.000393829, 0.999999, 0, 0, 0)
+target_position = Vector3(0, 0, 2)
+debug_shape_custom_color = Color(1, 0, 0, 1)
+debug_shape_thickness = 5
+
+[node name="4" type="RayCast3D" parent="Casts"]
+target_position = Vector3(2, 0, 0)
+debug_shape_custom_color = Color(0, 0.346541, 0.221063, 1)
+debug_shape_thickness = 5
+
+[node name="5" type="RayCast3D" parent="Casts"]
+target_position = Vector3(0, 2, 0)
+debug_shape_custom_color = Color(0.661008, 9.14484e-07, 0.362786, 1)
+debug_shape_thickness = 5
+
+[node name="6" type="RayCast3D" parent="Casts"]
+target_position = Vector3(0, 0, -2)
+debug_shape_custom_color = Color(1, 1, 0, 1)
+debug_shape_thickness = 5
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
