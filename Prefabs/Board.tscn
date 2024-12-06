@@ -9,6 +9,7 @@ albedo_color = Color(0.126296, 0.0385653, 0.000273377, 1)
 size = Vector3(60, 1, 60)
 
 [node name="Board" type="StaticBody3D"]
+collision_layer = 17
 
 [node name="Plane" type="CSGMesh3D" parent="."]
 transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, -1.58343, 0)

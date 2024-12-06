@@ -1,13 +1,17 @@
 extends RigidBody3D
 
-# test
+var LastValue = -1
+
+signal Resolved(amount)
 
 func _ready():
 	ThrowDice()
 	
 func ThrowDice():
-	apply_force(Vector3.UP * 500)
-	apply_torque(Vector3(randf_range(0, 2 * PI), randf_range(0, 2 * PI), randf_range(0, 2 * PI)) * randf_range(10, 20)) 
+	apply_force(Vector3.UP * 500 * randf_range(1, 2.5))
+	apply_torque(Vector3(randf_range(0, 2 * PI), randf_range(0, 2 * PI), randf_range(0, 2 * PI)) * randf_range(30, 80)) 
+	LastValue = -1
+	$Timer.start()
 	
 func GetValue():
 	var value = 1
@@ -15,6 +19,11 @@ func GetValue():
 		if child.is_colliding():
 			return value
 		value += 1
+	return -1
 
 func _on_timer_timeout():
-	print(GetValue())
+	if linear_velocity.length() <= 1:
+		if LastValue != GetValue():
+			LastValue = GetValue()
+			Resolved.emit(LastValue)
+			print("[GAME] Dice rolled: " + str(LastValue))
