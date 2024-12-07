@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://jc6wnfboqk3p"]
+[gd_scene load_steps=5 format=3 uid="uid://jc6wnfboqk3p"]
 
 [ext_resource type="PackedScene" uid="uid://c0dqrvmknexyo" path="res://Art/Dice/Dice.blend" id="1_vlun8"]
 [ext_resource type="Script" path="res://Scripts/Game/GameDice.gd" id="1_ws7re"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_36gsj"]
+friction = 0.25
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pt3wr"]
 custom_solver_bias = 1.0
 size = Vector3(2, 2, 2)
 
 [node name="GameDice" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_36gsj")
 gravity_scale = 2.0
 script = ExtResource("1_ws7re")
 

@@ -9,7 +9,7 @@ var StartPosition = Vector3.ZERO
 func SetFocus(object, moveSpeed = 10):
 	FocusedObject = object
 	FollowSpeed = moveSpeed
-	print(object.name + " focused")
+	print("[Camera] " + object.name + " focused")
 	
 	
 func _process(delta):
@@ -24,7 +24,9 @@ func _process(delta):
 		else:
 			if Progress < 1:
 				Progress += delta * FollowSpeed
-			else:
+			if Progress >= 1:
 				Progress = 1
+				return
 		$TargetPosition.global_position = lerp(StartPosition, LastPosition, Progress)
+		
 		look_at($TargetPosition.global_position)
