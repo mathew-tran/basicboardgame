@@ -1,11 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://bep0krbmgdrdj"]
+[gd_scene load_steps=5 format=3 uid="uid://bep0krbmgdrdj"]
 
 [ext_resource type="PackedScene" uid="uid://cysd1i5xldy8s" path="res://Art/Tile/Tile.blend" id="1_2jo12"]
 [ext_resource type="Script" path="res://Scripts/Game/GameTile.gd" id="1_kvfx4"]
+[ext_resource type="PackedScene" uid="uid://3le55x7wgtdw" path="res://Prefabs/TileVacancy.tscn" id="3_xt73q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y5sxy"]
+size = Vector3(10, 1, 10)
 
 [node name="GameTile" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.360229, 25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.973054, 25)
 script = ExtResource("1_kvfx4")
 
 [node name="Tile" parent="." instance=ExtResource("1_2jo12")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 0)
+
+[node name="Positions" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08265, 0)
+
+[node name="TileVacancy" parent="Positions" instance=ExtResource("3_xt73q")]
+
+[node name="TileVacancy2" parent="Positions" instance=ExtResource("3_xt73q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="TileVacancy3" parent="Positions" instance=ExtResource("3_xt73q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+
+[node name="TileVacancy4" parent="Positions" instance=ExtResource("3_xt73q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 2)
+
+[node name="TileVacancy5" parent="Positions" instance=ExtResource("3_xt73q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2.30498)
+
+[node name="TileVacancy6" parent="Positions" instance=ExtResource("3_xt73q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_y5sxy")

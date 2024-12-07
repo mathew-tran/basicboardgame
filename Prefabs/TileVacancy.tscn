@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://3le55x7wgtdw"]
+
+[ext_resource type="Script" path="res://Scripts/Game/TileVacancy.gd" id="1_vicpx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5p0om"]
+
+[node name="TileVacancy" type="Node3D"]
+script = ExtResource("1_vicpx")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+mesh = SubResource("BoxMesh_5p0om")

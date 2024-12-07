@@ -3,8 +3,42 @@ extends RigidBody3D
 class_name Player
 
 var CurrentTile : Tile
+var CurrentTileVacancy : TileVacancy
 
-func MoveToTargetTile(tile):
-	global_position = tile.global_position
+signal MoveCompleted
+
+var Offset = Vector3(0,  4, 0)
+
+func Activate():
+	pass
+	
+func MoveToTargetTile(tile : Tile):
+	
+	if is_instance_valid(CurrentTileVacancy):
+		CurrentTileVacancy.SetUsed(false)
+		
+	
+	var nextVacancy = tile.GetTileVacancy() as TileVacancy
+	nextVacancy.SetUsed(true)
+	CurrentTileVacancy = nextVacancy
+	
+	var tween = get_tree().create_tween()
+	
+	tween.tween_property(self, "global_position", global_position + Offset, .03).set_trans(Tween.TRANS_QUAD)
+	await tween.finished
+	
+	tween = get_tree().create_tween()
+	tween.tween_property(self, "global_position", nextVacancy.global_position + Offset, .2).set_trans(Tween.TRANS_QUAD)
+	await tween.finished
+	
+	tween = get_tree().create_tween()
+	tween.tween_property(self, "global_position", nextVacancy.global_position, .04).set_trans(Tween.TRANS_QUAD)
+	await tween.finished
+
+	await get_tree().create_timer(.1).timeout
+
+	linear_velocity = Vector3.ZERO
+	rotation = Vector3.ZERO
 	CurrentTile = tile
 	print(name + " moved to " + tile.name + " :"  + str(global_position))
+	MoveCompleted.emit()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c11v6wcvvmgyh"]
+[gd_scene load_steps=10 format=3 uid="uid://c11v6wcvvmgyh"]
 
 [ext_resource type="Script" path="res://Scripts/Game/Game.gd" id="1_rlwll"]
 [ext_resource type="PackedScene" uid="uid://jc6wnfboqk3p" path="res://Prefabs/GameDice.tscn" id="1_xbbo3"]
+[ext_resource type="Script" path="res://Scripts/Game/GameCamera.gd" id="2_61f3a"]
 [ext_resource type="PackedScene" uid="uid://ce4ors6jsrfxi" path="res://Prefabs/Board.tscn" id="2_dyhf3"]
 [ext_resource type="Script" path="res://Scripts/Game/TilesGroup.gd" id="2_lh3bu"]
 [ext_resource type="PackedScene" uid="uid://bep0krbmgdrdj" path="res://Prefabs/GameTile.tscn" id="3_hhjvh"]
@@ -13,7 +14,8 @@
 script = ExtResource("1_rlwll")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.64924, 4.80073, 9.8953)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.64924, 12.0673, 9.8953)
+script = ExtResource("2_61f3a")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.573934, 0.818902, 0, -0.818902, 0.573934, 0, 6.55572, 0)
@@ -79,6 +81,9 @@ transform = Transform3D(1, 0, 0, 0, 0.912848, -0.408299, 0, 0.408299, 0.912848, 
 [node name="GamePlayer" parent="Players" instance=ExtResource("4_tjitt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5249, 0.26353, -24.7494)
 
+[node name="GamePlayer2" parent="Players" instance=ExtResource("4_tjitt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7119, 0.26353, -24.7494)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Roll" type="Button" parent="CanvasLayer"]
@@ -98,5 +103,9 @@ theme_override_font_sizes/font_size = 60
 text = "Roll Dice
 "
 script = ExtResource("6_kdfgx")
+
+[node name="DiceFocusPosition" type="Node3D" parent="."]
+
+[node name="StartTileMarker" type="Node3D" parent="."]
 
 [connection signal="button_up" from="CanvasLayer/Roll" to="CanvasLayer/Roll" method="_on_button_up"]
