@@ -35,10 +35,10 @@ func MoveToTargetTile(tile : Tile):
 	tween.tween_property(self, "global_position", nextVacancy.global_position, .04).set_trans(Tween.TRANS_QUAD)
 	await tween.finished
 
-	await get_tree().create_timer(.1).timeout
+	await get_tree().create_timer(.3).timeout
 
 	linear_velocity = Vector3.ZERO
 	rotation = Vector3.ZERO
 	CurrentTile = tile
-	print(name + " moved to " + tile.name + " :"  + str(global_position))
+	#print(name + " moved to " + tile.name + " :"  + str(global_position))
 	MoveCompleted.emit()

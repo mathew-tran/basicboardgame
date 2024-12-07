@@ -19,16 +19,22 @@ func _ready():
 func Roll():
 	if bIsRolling:
 		return
-		
+	print("[GAME] Rolling..")
 	CurrentValue = 0
 	bIsRolling = true
 	var index = 0
 	
+	await get_tree().create_timer(.5).timeout
+	
 	for die in get_children():
-		await get_tree().process_frame
-		die.global_position = InitialPositions[index]
-		await get_tree().process_frame
+		die.MoveToPosition(InitialPositions[index])
+		await die.MovedToPosition
 		index += 1
+		
+	await get_tree().create_timer(1.5).timeout
+	
+	index = 0
+	for die in get_children():
 		die.ThrowDice()
 	
 	DiceRolled = []

@@ -2,9 +2,29 @@ extends Camera3D
 
 var FocusedObject = null
 
-func SetFocus(object):
+var FollowSpeed = 10
+var LastPosition = Vector3.ZERO
+var Progress = 0
+var StartPosition = Vector3.ZERO
+func SetFocus(object, moveSpeed = 10):
 	FocusedObject = object
+	FollowSpeed = moveSpeed
+	print(object.name + " focused")
+	
 	
 func _process(delta):
 	if FocusedObject:
-		look_at(FocusedObject.global_position)
+		if LastPosition.distance_to(FocusedObject.global_position) > 10:
+			var newPosition = FocusedObject.global_position
+			newPosition.y = LastPosition.y
+			StartPosition = $TargetPosition.global_position
+			LastPosition = newPosition
+			Progress = 0
+
+		else:
+			if Progress < 1:
+				Progress += delta * FollowSpeed
+			else:
+				Progress = 1
+		$TargetPosition.global_position = lerp(StartPosition, LastPosition, Progress)
+		look_at($TargetPosition.global_position)
