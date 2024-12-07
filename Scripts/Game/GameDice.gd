@@ -6,10 +6,12 @@ signal Resolved(amount)
 
 func _ready():
 	$Timer.stop()
+	rotation = Vector3(randf_range(0, 2 * PI), randf_range(0, 2 * PI), randf_range(0, 2 * PI))
 		
 func ThrowDice():
 	freeze = true
 	$Timer.stop()
+	rotation = Vector3(randf_range(0, 2 * PI), randf_range(0, 2 * PI), randf_range(0, 2 * PI))
 	linear_velocity = Vector3.ZERO
 	freeze = false
 	apply_force(Vector3.UP * 500 * randf_range(1, 2.5))

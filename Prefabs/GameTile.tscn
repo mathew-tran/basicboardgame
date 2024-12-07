@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bep0krbmgdrdj"]
+[gd_scene load_steps=3 format=3 uid="uid://bep0krbmgdrdj"]
 
 [ext_resource type="PackedScene" uid="uid://cysd1i5xldy8s" path="res://Art/Tile/Tile.blend" id="1_2jo12"]
+[ext_resource type="Script" path="res://Scripts/Game/GameTile.gd" id="1_kvfx4"]
 
 [node name="GameTile" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.360229, 25)
+script = ExtResource("1_kvfx4")
 
 [node name="Tile" parent="." instance=ExtResource("1_2jo12")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 0)
