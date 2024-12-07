@@ -15,7 +15,6 @@ func Resolve():
 func GetTileVacancy():
 	if $Positions.get_child(0).IsUsed() == false:
 		return $Positions.get_child(0)
-	Vacancies.shuffle()
 	for child in Vacancies:
 		if child.IsUsed() == false:
 			return child

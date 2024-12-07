@@ -14,7 +14,7 @@ func ThrowDice():
 	$Timer.stop()
 	linear_velocity = Vector3.ZERO
 	freeze = false
-	apply_force(Vector3.UP * 500 * randf_range(1, 2.5))
+	apply_force(Vector3.UP * 500 * randf_range(2, 3))
 	apply_torque(Vector3(randf_range(0, 2 * PI), randf_range(0, 2 * PI), randf_range(0, 2 * PI)) * randf_range(30, 80)) 
 	LastValue = -1
 	$Timer.start()
@@ -22,7 +22,7 @@ func ThrowDice():
 func MoveToPosition(newPosition):
 	freeze = true
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "global_position", newPosition, .2).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "global_position", newPosition, .1).set_trans(Tween.TRANS_CUBIC)
 	await tween.finished
 
 	

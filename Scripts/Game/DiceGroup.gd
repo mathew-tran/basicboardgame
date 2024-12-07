@@ -31,7 +31,7 @@ func Roll():
 		await die.MovedToPosition
 		index += 1
 		
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1).timeout
 	
 	index = 0
 	for die in get_children():

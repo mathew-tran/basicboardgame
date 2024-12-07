@@ -21,7 +21,11 @@ func SetupPlayers():
 	GetNextPlayer()
 	
 func GetNextPlayer():
-	CurrentPlayer = $Players.get_child(0)
+	var index = $Players.get_children().find(CurrentPlayer)
+	index += 1
+	if index >= $Players.get_child_count():
+		index = 0
+	CurrentPlayer = $Players.get_child(index)
 	CurrentPlayer.Activate()
 	FocusDicePosition()
 	
@@ -43,3 +47,4 @@ func OnDiceRollCompleted(amount):
 		CurrentPlayer.MoveToTargetTile(newTile)
 		await CurrentPlayer.MoveCompleted
 		spacesToMove -= 1
+	GetNextPlayer()
