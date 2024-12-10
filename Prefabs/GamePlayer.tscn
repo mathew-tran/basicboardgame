@@ -7,7 +7,7 @@
 height = 2.80374
 radius = 1.37993
 
-[node name="GamePlayer" type="RigidBody3D"]
+[node name="GAME_PLAYER" type="RigidBody3D"]
 mass = 5.0
 gravity_scale = 5.0
 script = ExtResource("1_7ttgv")

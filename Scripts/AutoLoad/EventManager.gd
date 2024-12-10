@@ -15,3 +15,5 @@ enum UI_STATE {
 }
 
 signal ChangeGameState(state)
+
+var GameReference : Game

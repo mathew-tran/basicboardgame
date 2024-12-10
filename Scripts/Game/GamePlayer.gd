@@ -1,3 +1,5 @@
+@tool
+
 extends RigidBody3D
 
 class_name Player
@@ -9,6 +11,12 @@ signal MoveCompleted
 
 var Offset = Vector3(0,  4, 0)
 var VictoryPoints = 0
+
+@export var bIsPlayer = true
+@export var PlayerName = "PLAYER"
+
+func _enter_tree():
+	name = "GAME_" + PlayerName
 
 func Activate():
 	pass
@@ -52,5 +60,11 @@ func AddVictoryPoint(amount):
 func GetVictoryPoints():
 	return VictoryPoints
 
+func GetName():
+	return PlayerName
+	
 func ToString():
-	return name + " VP: " + str(VictoryPoints)
+	return PlayerName + " VP: " + str(VictoryPoints)
+
+func IsHuman():
+	return bIsPlayer

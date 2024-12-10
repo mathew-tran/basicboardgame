@@ -18,6 +18,7 @@ var PlayerState = EventManager.UI_STATE.GAME_START
 var Result = []
 
 func _ready():	
+	EventManager.GameReference = self
 	add_to_group("Game")
 	$Dice.OnDiceRollCompleted.connect(OnDiceRollCompleted)
 	EventManager.RollButtonClicked.connect(OnRollButtonClicked)
@@ -26,6 +27,8 @@ func _ready():
 	SetupPlayers()
 	EventManager.RoundsLeft.emit(RoundsLeft)
 	EventManager.GameOver.connect(OnGameOver)
+	
+	
 	
 func SetupPlayers():
 	

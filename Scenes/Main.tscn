@@ -91,11 +91,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65419, 0, 0)
 
 [node name="Players" type="Node3D" parent="."]
 
-[node name="GamePlayer" parent="Players" instance=ExtResource("4_tjitt")]
+[node name="GAME_PLAYER" parent="Players" instance=ExtResource("4_tjitt")]
 transform = Transform3D(0.99481, -0.100155, -0.0179759, 0.100171, 0.99497, 0, 0.0178855, -0.00180066, 0.999838, 7.5249, 2.6788, -14.9311)
 
-[node name="GamePlayer3" parent="Players" instance=ExtResource("4_tjitt")]
+[node name="GAME_COM1" parent="Players" instance=ExtResource("4_tjitt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5249, 3.06014, -37.1953)
+bIsPlayer = false
+PlayerName = "COM1"
 
 [node name="CanvasLayer" parent="." instance=ExtResource("9_s8tgn")]
 

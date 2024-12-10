@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+
 func _ready():
 	HideAllUI()
 	EventManager.ChangeGameState.connect(OnChangeGameState)
@@ -16,12 +17,17 @@ func HideAllUI():
 	$GameEnd.visible = false
 		
 func ShowPlayerStart():
-	$GameTurn.visible = true
+	
+	if EventManager.GameReference.CurrentPlayer.IsHuman():
+		$GameTurn.visible = true
+	else:
+		# Need to move this to an AI controller under the player
+		await get_tree().create_timer(1.0).timeout
+		$GameTurn/Roll.Press()
 	
 func ShowPlayerEnd():
 	$GameEnd.visible = true
-	var game = get_tree().get_nodes_in_group("Game")[0] as Game
 	
 	$GameEnd/Label.text = ""
-	for result in game.Result:
+	for result in EventManager.GameReference.Result:
 		$GameEnd/Label.text += result
