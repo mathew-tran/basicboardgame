@@ -1,7 +1,8 @@
 extends Node3D
 
+class_name Game
+
 var CurrentPlayer : Player
-var Results = []
 var RoundsLeft = 2
 
 enum PLACEMENT {
@@ -12,7 +13,12 @@ enum PLACEMENT {
 	FOURTH
 }
 
+var PlayerState = EventManager.UI_STATE.GAME_START
+
+var Result = []
+
 func _ready():	
+	add_to_group("Game")
 	$Dice.OnDiceRollCompleted.connect(OnDiceRollCompleted)
 	EventManager.RollButtonClicked.connect(OnRollButtonClicked)
 	$StartTileMarker.global_position = $Tiles.get_child(0).global_position
@@ -30,6 +36,7 @@ func SetupPlayers():
 		
 	GetNextPlayer()
 	
+	
 func GetNextPlayer(bFocusNextPlayer = false):
 	var index = $Players.get_children().find(CurrentPlayer)
 	
@@ -45,8 +52,10 @@ func GetNextPlayer(bFocusNextPlayer = false):
 	CurrentPlayer = $Players.get_child(index)
 	$Pointer.SetPosition(CurrentPlayer.global_position)
 	CurrentPlayer.Activate()
+	EventManager.ChangeGameState.emit(EventManager.UI_STATE.PLAYER_START)
 	
 func OnRollButtonClicked():
+	EventManager.ChangeGameState.emit(EventManager.UI_STATE.RESOLVING)
 	$Pointer.Hide()
 	FocusDicePosition()
 	
@@ -80,6 +89,7 @@ func PlayerSort(a : Player , b : Player):
 	return a.GetVictoryPoints() > b.GetVictoryPoints()
 
 func DetermineWinner():
+	
 	var players = []
 	for player in $Players.get_children():
 		players.append(player)
@@ -97,6 +107,8 @@ func DetermineWinner():
 			placementPoints = player.GetVictoryPoints()
 			
 			
-		print("===")			
-		print(PLACEMENT.keys()[currentPlacement])
-		print(player.ToString())
+		Result.append("===\n")
+		Result.append(PLACEMENT.keys()[currentPlacement] + "\n")
+		Result.append(player.ToString() + "\n")
+		
+	EventManager.ChangeGameState.emit(EventManager.UI_STATE.GAME_END)
