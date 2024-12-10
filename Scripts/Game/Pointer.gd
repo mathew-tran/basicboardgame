@@ -5,7 +5,7 @@ func _ready():
 
 func SetPosition(newPosition):
 	global_position = newPosition
-	global_position.y = 5
+	global_position.y += 5
 	print(global_position)
 	visible = true
 	

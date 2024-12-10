@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://8mitieq6qp6y"]
+
+[ext_resource type="Script" path="res://Scripts/UI/RollButton.gd" id="1_70opu"]
+[ext_resource type="Script" path="res://Scripts/UI/TurnsLeft.gd" id="2_a8bsj"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Roll" type="Button" parent="."]
+custom_minimum_size = Vector2(300, 80)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -93.0
+offset_right = 150.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 60
+text = "Roll Dice
+"
+script = ExtResource("1_70opu")
+
+[node name="TurnsLeft" type="VBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -172.0
+offset_top = 5.0
+offset_right = -9.0
+offset_bottom = 74.0
+grow_horizontal = 0
+script = ExtResource("2_a8bsj")
+
+[node name="Label" type="Label" parent="TurnsLeft"]
+layout_mode = 2
+text = "ROUNDS REMAINING"
+horizontal_alignment = 1
+
+[node name="Amount" type="Label" parent="TurnsLeft"]
+layout_mode = 2
+text = "20
+"
+horizontal_alignment = 1
+
+[connection signal="button_up" from="Roll" to="Roll" method="_on_button_up"]

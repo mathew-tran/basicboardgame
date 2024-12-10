@@ -7,3 +7,6 @@ func GetNextTile(tile):
 	if get_child_count() <= tilePosition:
 		tilePosition = 0
 	return get_child(tilePosition)
+
+func IsFirstTile(tile):
+	return tile == get_child(0)

@@ -19,19 +19,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08265, 0)
 [node name="TileVacancy" parent="Positions" instance=ExtResource("3_xt73q")]
 
 [node name="TileVacancy2" parent="Positions" instance=ExtResource("3_xt73q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.287088, 0, -2.51147)
 
 [node name="TileVacancy3" parent="Positions" instance=ExtResource("3_xt73q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.28128, 0, -2.2305)
 
 [node name="TileVacancy4" parent="Positions" instance=ExtResource("3_xt73q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65078, 0, 2)
 
 [node name="TileVacancy5" parent="Positions" instance=ExtResource("3_xt73q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2.30498)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1.34107)
 
 [node name="TileVacancy6" parent="Positions" instance=ExtResource("3_xt73q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49324, 0, -1.31161)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

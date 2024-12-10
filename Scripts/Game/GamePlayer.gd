@@ -8,6 +8,7 @@ var CurrentTileVacancy : TileVacancy
 signal MoveCompleted
 
 var Offset = Vector3(0,  4, 0)
+var VictoryPoints = 0
 
 func Activate():
 	pass
@@ -40,5 +41,16 @@ func MoveToTargetTile(tile : Tile):
 	linear_velocity = Vector3.ZERO
 	rotation = Vector3.ZERO
 	CurrentTile = tile
-	#print(name + " moved to " + tile.name + " :"  + str(global_position))
+
 	MoveCompleted.emit()
+
+func AddVictoryPoint(amount):
+	VictoryPoints += amount
+	print(name + "VP UPDATE (" + str(amount) + ")")
+	print(ToString())
+	
+func GetVictoryPoints():
+	return VictoryPoints
+
+func ToString():
+	return name + " VP: " + str(VictoryPoints)

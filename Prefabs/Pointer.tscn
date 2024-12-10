@@ -3,6 +3,33 @@
 [ext_resource type="Script" path="res://Scripts/Game/Pointer.gd" id="1_vxix4"]
 [ext_resource type="PackedScene" uid="uid://bt6mm1aetr85a" path="res://Art/Pointer/Pointer.blend" id="1_x7kut"]
 
+[sub_resource type="Animation" id="Animation_cahgf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pointer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pointer:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.14159, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_hbfst"]
 resource_name = "Twist"
 loop_mode = 1
@@ -31,33 +58,6 @@ tracks/1/keys = {
 "values": [Vector3(3.14159, 0, 0), Vector3(3.14159, 3.14159, 0), Vector3(3.14159, 6.28319, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_cahgf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pointer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pointer:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(3.14159, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_abg4y"]
 _data = {
 "RESET": SubResource("Animation_cahgf"),
@@ -68,7 +68,7 @@ _data = {
 script = ExtResource("1_vxix4")
 
 [node name="Pointer" parent="." instance=ExtResource("1_x7kut")]
-transform = Transform3D(1, 0, 0, 0, -1, -1.50996e-07, 0, 1.50996e-07, -1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -1, -2.53518e-06, 0, 2.53518e-06, -1, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
