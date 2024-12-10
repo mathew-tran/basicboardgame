@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c11v6wcvvmgyh"]
+[gd_scene load_steps=12 format=3 uid="uid://c11v6wcvvmgyh"]
 
 [ext_resource type="Script" path="res://Scripts/Game/Game.gd" id="1_rlwll"]
 [ext_resource type="PackedScene" uid="uid://jc6wnfboqk3p" path="res://Prefabs/GameDice.tscn" id="1_xbbo3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bep0krbmgdrdj" path="res://Prefabs/GameTile.tscn" id="3_hhjvh"]
 [ext_resource type="Script" path="res://Scripts/Game/DiceGroup.gd" id="3_sk3en"]
 [ext_resource type="PackedScene" uid="uid://cqbwyau56sd6" path="res://Prefabs/GamePlayer.tscn" id="4_tjitt"]
+[ext_resource type="PackedScene" uid="uid://blpsh6j7pkjmi" path="res://Art/Flag/Flag.blend" id="6_uxl1k"]
 [ext_resource type="PackedScene" uid="uid://8mitieq6qp6y" path="res://Prefabs/UI/GameUI.tscn" id="9_s8tgn"]
 [ext_resource type="PackedScene" uid="uid://b25m01xm0lh7r" path="res://Prefabs/Pointer.tscn" id="10_6pcf2"]
 
@@ -27,6 +28,9 @@ shadow_enabled = true
 
 [node name="Board" parent="." instance=ExtResource("2_dyhf3")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Flag" parent="." instance=ExtResource("6_uxl1k")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -24.1913, -3.29665, 44.1063)
 
 [node name="Tiles" type="Node3D" parent="."]
 script = ExtResource("2_lh3bu")

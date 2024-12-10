@@ -4,6 +4,14 @@ var CurrentPlayer : Player
 var Results = []
 var RoundsLeft = 2
 
+enum PLACEMENT {
+	NULL,
+	FIRST,
+	SECOND,
+	THIRD,
+	FOURTH
+}
+
 func _ready():	
 	$Dice.OnDiceRollCompleted.connect(OnDiceRollCompleted)
 	EventManager.RollButtonClicked.connect(OnRollButtonClicked)
@@ -79,5 +87,16 @@ func DetermineWinner():
 	players.sort_custom(PlayerSort)
 	
 	print("Player Order")
+	
+	var currentPlacement = PLACEMENT.FIRST
+	var placementPoints = -1
 	for player in players:
+		if player.GetVictoryPoints() < placementPoints:
+			currentPlacement += 1
+		if player.GetVictoryPoints() >= placementPoints:
+			placementPoints = player.GetVictoryPoints()
+			
+			
+		print("===")			
+		print(PLACEMENT.keys()[currentPlacement])
 		print(player.ToString())
