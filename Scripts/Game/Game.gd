@@ -86,9 +86,13 @@ func OnDiceRollCompleted(amount):
 		CurrentPlayer.MoveToTargetTile(newTile)
 		await CurrentPlayer.MoveCompleted
 		if  $Tiles.IsFirstTile(CurrentPlayer.CurrentTile):
-			CurrentPlayer.AddVictoryPoint(1)
+			CurrentPlayer.AddVictoryPoint(5)
 			
 		spacesToMove -= 1
+		
+	CurrentPlayer.CurrentTile.Resolve(CurrentPlayer)
+	await CurrentPlayer.CurrentTile.Resolved
+	
 	GetNextPlayer()
 	FocusPlayerPosition()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c11v6wcvvmgyh"]
+[gd_scene load_steps=13 format=3 uid="uid://c11v6wcvvmgyh"]
 
 [ext_resource type="Script" path="res://Scripts/Game/Game.gd" id="1_rlwll"]
 [ext_resource type="PackedScene" uid="uid://jc6wnfboqk3p" path="res://Prefabs/GameDice.tscn" id="1_xbbo3"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/Game/DiceGroup.gd" id="3_sk3en"]
 [ext_resource type="PackedScene" uid="uid://cqbwyau56sd6" path="res://Prefabs/GamePlayer.tscn" id="4_tjitt"]
 [ext_resource type="PackedScene" uid="uid://blpsh6j7pkjmi" path="res://Art/Flag/Flag.blend" id="6_uxl1k"]
+[ext_resource type="PackedScene" uid="uid://l27xknsbcu7a" path="res://Prefabs/GameTiles/CoinTile.tscn" id="7_ly4dy"]
 [ext_resource type="PackedScene" uid="uid://8mitieq6qp6y" path="res://Prefabs/UI/GameUI.tscn" id="9_s8tgn"]
 [ext_resource type="PackedScene" uid="uid://b25m01xm0lh7r" path="res://Prefabs/Pointer.tscn" id="10_6pcf2"]
 
@@ -38,8 +39,11 @@ script = ExtResource("2_lh3bu")
 [node name="GameTile" parent="Tiles" instance=ExtResource("3_hhjvh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9157, -0.973054, 38.1636)
 
-[node name="GameTile15" parent="Tiles" instance=ExtResource("3_hhjvh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75387, -0.360229, 46.9942)
+[node name="GameTile15" parent="Tiles" instance=ExtResource("7_ly4dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02729, -0.973054, 34.1906)
+
+[node name="GameTile16" parent="Tiles" instance=ExtResource("7_ly4dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.81282, -0.973054, 34.1906)
 
 [node name="GameTile2" parent="Tiles" instance=ExtResource("3_hhjvh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4478, -0.360229, 34.762)

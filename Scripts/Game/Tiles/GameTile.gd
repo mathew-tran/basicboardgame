@@ -4,13 +4,16 @@ class_name Tile
 
 var Vacancies = []
 
+signal Resolved
+
 func _ready():
 
 	for child in $Positions.get_children():
 		Vacancies.append(child)
 		
-func Resolve():
-	pass
+func Resolve(player: Player):
+	await get_tree().create_timer(.1).timeout
+	Resolved.emit()
 
 func GetTileVacancy():
 	if $Positions.get_child(0).IsUsed() == false:

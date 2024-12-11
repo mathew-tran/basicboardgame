@@ -65,8 +65,10 @@ func MoveToTargetTile(tile : Tile):
 
 func AddVictoryPoint(amount):
 	VictoryPoints += amount
-	print(name + "VP UPDATE (" + str(amount) + ")")
-	print(ToString())
+	PlayerUpdate.emit()
+	
+func AddCoin(amount):
+	Coins += amount
 	PlayerUpdate.emit()
 	
 func GetVictoryPoints():
