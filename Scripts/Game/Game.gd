@@ -17,6 +17,7 @@ var PlayerState = EventManager.UI_STATE.GAME_START
 
 var Result = []
 
+
 func _ready():	
 	EventManager.GameReference = self
 	add_to_group("Game")
@@ -27,8 +28,11 @@ func _ready():
 	SetupPlayers()
 	EventManager.RoundsLeft.emit(RoundsLeft)
 	EventManager.GameOver.connect(OnGameOver)
+	EventManager.GameStart.emit()
 	
 	
+func GetPlayers():
+	return $Players.get_children()
 	
 func SetupPlayers():
 	
@@ -52,6 +56,9 @@ func GetNextPlayer(bFocusNextPlayer = false):
 			return
 		else:
 			EventManager.RoundsLeft.emit(RoundsLeft)
+			
+	if is_instance_valid(CurrentPlayer):
+		CurrentPlayer.DeActivate()
 	CurrentPlayer = $Players.get_child(index)
 	$Pointer.SetPosition(CurrentPlayer.global_position)
 	CurrentPlayer.Activate()

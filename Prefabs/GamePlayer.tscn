@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqbwyau56sd6"]
+[gd_scene load_steps=5 format=3 uid="uid://cqbwyau56sd6"]
 
 [ext_resource type="Script" path="res://Scripts/Game/GamePlayer.gd" id="1_7ttgv"]
 [ext_resource type="PackedScene" uid="uid://cn3im86ls28h6" path="res://Art/Player/Player.blend" id="1_icte8"]
+[ext_resource type="Texture2D" uid="uid://b5skvqmee40wl" path="res://Art/Player/Player.png" id="2_j20sb"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_nop0f"]
 height = 2.80374
@@ -11,6 +12,7 @@ radius = 1.37993
 mass = 5.0
 gravity_scale = 5.0
 script = ExtResource("1_7ttgv")
+PlayerImage = ExtResource("2_j20sb")
 
 [node name="Player" parent="." instance=ExtResource("1_icte8")]
 

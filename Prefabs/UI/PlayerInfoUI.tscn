@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0wwhc0ejor5p"]
+
+[ext_resource type="Texture2D" uid="uid://b5skvqmee40wl" path="res://Art/Player/Player.png" id="1_2yjbv"]
+[ext_resource type="Script" path="res://Scripts/UI/PlayerInfoUI.gd" id="1_orf0g"]
+[ext_resource type="Texture2D" uid="uid://b3ws75np2f8hd" path="res://Art/UI/Coin.png" id="2_wpxfh"]
+[ext_resource type="Texture2D" uid="uid://d4bh5yqar7mtu" path="res://Art/UI/Flag.png" id="3_netd6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjjuk"]
+
+[node name="PlayerUI" type="Panel"]
+custom_minimum_size = Vector2(200, 50)
+script = ExtResource("1_orf0g")
+
+[node name="PlayerImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 75.1111
+offset_bottom = 44.0
+texture = ExtResource("1_2yjbv")
+expand_mode = 3
+
+[node name="PlayerName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 3.0
+offset_right = 189.0
+offset_bottom = 26.0
+text = "PLAYERNAME"
+
+[node name="Data" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 25.0
+offset_right = 295.0
+offset_bottom = 65.0
+scale = Vector2(0.5, 0.5)
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Data"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Data/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_wpxfh")
+expand_mode = 2
+
+[node name="CoinAmount" type="Label" parent="Data/HBoxContainer"]
+layout_mode = 2
+text = "x 10"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Data"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Data/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("3_netd6")
+expand_mode = 2
+
+[node name="FlagAmount" type="Label" parent="Data/HBoxContainer2"]
+layout_mode = 2
+text = "x 10"
+
+[node name="Active" type="Panel" parent="."]
+modulate = Color(0.0808327, 0.763371, 0.524619, 1)
+show_behind_parent = true
+custom_minimum_size = Vector2(210, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -30.0
+offset_right = 105.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gjjuk")

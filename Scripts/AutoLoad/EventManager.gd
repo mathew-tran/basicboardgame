@@ -5,7 +5,9 @@ signal RollButtonClicked
 signal RollCompleted(amount)
 signal RoundsLeft(rounds)
 
+signal GameStart
 signal GameOver
+
 
 enum UI_STATE {
 	GAME_START,

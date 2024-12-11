@@ -9,17 +9,28 @@ var CurrentTileVacancy : TileVacancy
 
 signal MoveCompleted
 
+@export var PlayerImage : Texture2D
+
 var Offset = Vector3(0,  4, 0)
 var VictoryPoints = 0
+var Coins = 0
 
 @export var bIsPlayer = true
 @export var PlayerName = "PLAYER"
+
+signal PlayerUpdate
+
+signal PlayerActivated
+signal PlayerDeactivated
 
 func _enter_tree():
 	name = "GAME_" + PlayerName
 
 func Activate():
-	pass
+	PlayerActivated.emit()
+	
+func DeActivate():
+	PlayerDeactivated.emit()
 	
 func MoveToTargetTile(tile : Tile):
 	
@@ -56,10 +67,14 @@ func AddVictoryPoint(amount):
 	VictoryPoints += amount
 	print(name + "VP UPDATE (" + str(amount) + ")")
 	print(ToString())
+	PlayerUpdate.emit()
 	
 func GetVictoryPoints():
 	return VictoryPoints
 
+func GetCoins():
+	return Coins
+	
 func GetName():
 	return PlayerName
 	
